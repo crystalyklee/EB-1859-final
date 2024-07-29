@@ -24,7 +24,27 @@ RelevantData$Berlin.Sleepiness.Scale <- factor(RelevantData$Berlin.Sleepiness.Sc
 summary(RelevantData)
 
 # 4. Estimate the prevalence of sleep disturbance (Q1)
+#    Need to examine the various sleep scores - literature review
+#    -> Berlin.Sleepiness.Scale is binary (value of 1 indicates disturbance)
+#    -> Pittsburgh Sleep Quality Index (PSQI), the Epworth sleepiness scale (ESS),
+#       and the Athens insomnia scale (AIS) are numeric with higher values
+#       indicating worse sleep.
+#    Collate these different measures into a new column of the data frame using
+#    the mutate function
+
+
 # 5. Identify predictors that are associated with sleep disturbance (Q1)
+#    Logistic regression due to the binomial nature of the outcome (sleep disturbance)
+#    True predictors will have larger coefficients and smaller p-values
+#    Can compare different suites of predictors using ANOVAs with nested models
+
 # 6. Evaluate the relationship between sleep disturbance and quality of life (Q2)
+#    Health Related Quality of Life (QOL) is measured by SF36 PCS and SF36 MCS:
+#    -> SF36 PCS measures the physical component of QOL
+#    -> SF36 MCS measures the mental component of QOL
+#    They both take numeric values, with larger values indicating better QOL
+#    Logistic regression due to the binomial nature of the outcome (sleep disturbance)
+
 # 7. Write up the answers to Q1 and Q2
+
 # 8. Create presentation on the answers to Q1 and Q2
