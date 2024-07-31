@@ -1,7 +1,7 @@
 # #Questions to Answer
 # 1. What is the prevalence of subjective sleep disturbance and what are its predictors in post liver transplant recipients
 # 2. What is the impact and relationship of sleep disturbance with health related quality of life in these patients
-# 
+
 # # Steps
 # 1. Assign roles, including code reviewer
 # 2. Clean data, focus on relevant variables
@@ -23,6 +23,7 @@ RelevantData$Berlin.Sleepiness.Scale <- factor(RelevantData$Berlin.Sleepiness.Sc
 
 summary(RelevantData)
 
+#-------------------------------------------------------------------------------
 # 4. Estimate the prevalence of sleep disturbance (Q1)
 #    Need to examine the various sleep scores - literature review
 #    -> Berlin.Sleepiness.Scale is binary (value of 1 indicates disturbance)
@@ -32,12 +33,32 @@ summary(RelevantData)
 #    Collate these different measures into a new column of the data frame using
 #    the mutate function
 
+library(dplyr)
 
+## Code that can ennumerate the number of sleep disturbances, defined as "disorders of initiating and maintaining sleep (DIMS, insomnias), disorders of excessive somnolence (DOES), disorders of sleep–wake schedule, and dysfunctions associated with sleep, sleep stages, or partial arousals (parasomnias)." - https://www.ncbi.nlm.nih.gov/books/NBK401/#:~:text=Sleep%20disturbances%20encompass%20disorders%20of,or%20partial%20arousals%20(parasomnias).
+# library(forcats)
+# RelevantData <- RelevantData %>%
+#   mutate(Disordered_EpWorth = case_when(Epworth.Sleepiness.Scale >10 ~ 1, .default = 0)) %>%  # >10
+#   mutate(Disordered_Pittsburgh = case_when(Pittsburgh.Sleep.Quality.Index.Score >4 ~ 1, .default = 0)) %>%  # >10
+#   mutate(Disordered_Athens = case_when(Athens.Insomnia.Scale >5 ~ 1, .default = 0)) %>%  # >10
+#   rowwise %>%
+#     mutate(Sleep_Disturbance = sum(Berlin.Sleepiness.Scale,Disordered_EpWorth,Disordered_Pittsburgh,Disordered_Athens, na.rm=T))
+
+RelevantData <- mutate(RelevantData,Sleep_Disturbance = case_when(
+    Berlin.Sleepiness.Scale == "high likelihood of sleep disordered breathing" | 
+    Epworth.Sleepiness.Scale >10 |
+    Pittsburgh.Sleep.Quality.Index.Score >4 |
+    Athens.Insomnia.Scale >5 ~ 1,
+    .default = 0
+))
+
+#-------------------------------------------------------------------------------
 # 5. Identify predictors that are associated with sleep disturbance (Q1)
 #    Logistic regression due to the binomial nature of the outcome (sleep disturbance)
 #    True predictors will have larger coefficients and smaller p-values
 #    Can compare different suites of predictors using ANOVAs with nested models
 
+#-------------------------------------------------------------------------------
 # 6. Evaluate the relationship between sleep disturbance and quality of life (Q2)
 #    Health Related Quality of Life (QOL) is measured by SF36 PCS and SF36 MCS:
 #    -> SF36 PCS measures the physical component of QOL
