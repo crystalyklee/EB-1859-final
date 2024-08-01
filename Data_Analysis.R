@@ -50,7 +50,7 @@ RelevantData <- mutate(RelevantData,Sleep_Disturbance = case_when( #the case whe
     .default = as.factor(0)
 ))
 
-Sleep_Disturbance_Prevalence <- sum(as.numeric(RelevantData$Sleep_Disturbance))/length(RelevantData$Sleep_Disturbance)
+Sleep_Disturbance_Prevalence <- sum(as.numeric(as.character(RelevantData$Sleep_Disturbance)))/length(RelevantData$Sleep_Disturbance)
 
 #-------------------------------------------------------------------------------
 # 5. Identify predictors that are associated with sleep disturbance (Q1)
