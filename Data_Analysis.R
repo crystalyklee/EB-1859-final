@@ -568,6 +568,28 @@ AIC(NewModel3) # AIC = 203.3916
 pR2(NewModel3) #McFadden value = 0.2391312
 
 
+#Linear model with QOL serving as the response
+# Physical
+SF36.PCSModel1 <- lm(SF36.PCS~Gender+Age+BMI+Time.from.transplant+Liver.Diagnosis+Recurrence.of.disease+Rejection.graft.dysfunction+Any.fibrosis+Renal.Failure+Depression+Corticoid+Epworth.Sleepiness.Scale+Pittsburgh.Sleep.Quality.Index.Score+Athens.Insomnia.Scale+Berlin.Sleepiness.Scale,RelevantData)
+summary(SF36.PCSModel1)
+vif(SF36.PCSModel1) #all below 5
+pR2(SF36.PCSModel1) #McFadden value = 0.0426612
+
+SF36.PCSModel2 <- lm(SF36.PCS~Epworth.Sleepiness.Scale+Athens.Insomnia.Scale,RelevantData)
+summary(SF36.PCSModel2)
+pR2(SF36.PCSModel2) #McFadden value = 0.02730669
+
+# Mental
+SF36.MCSModel1 <- lm(SF36.MCS~Gender+Age+BMI+Time.from.transplant+Liver.Diagnosis+Recurrence.of.disease+Rejection.graft.dysfunction+Any.fibrosis+Renal.Failure+Depression+Corticoid+Epworth.Sleepiness.Scale+Pittsburgh.Sleep.Quality.Index.Score+Athens.Insomnia.Scale+Berlin.Sleepiness.Scale,RelevantData)
+summary(SF36.MCSModel1)
+vif(SF36.MCSModel1) #all below 5
+pR2(SF36.MCSModel1) #McFadden value = 0.08239649
+
+SF36.MCSModel2 <- lm(SF36.MCS~Age+Depression+Pittsburgh.Sleep.Quality.Index.Score,RelevantData)
+summary(SF36.PCSModel2)
+pR2(SF36.MCSModel2) #McFadden value = 0.06826574
+
+
 # 7. Write up the answers to Q1 and Q2
 
 # 8. Create presentation on the answers to Q1 and Q2
