@@ -23,6 +23,22 @@ RelevantData$Corticoid <- factor(RelevantData$Corticoid,levels = c(1,0), labels 
 
 summary(RelevantData)
 
+# EDA using Data Science Heroes' Template
+library(dplyr)
+library(funModeling) 
+library(Hmisc)
+RelevantData_eda <- function(RelevantData)
+{
+  glimpse(RelevantData)
+  print(status(RelevantData))
+  freq(RelevantData) 
+  print(profiling_num(RelevantData))
+  plot_num(RelevantData)
+  describe(RelevantData)
+}
+
+RelevantData_eda(RelevantData)
+
 #-------------------------------------------------------------------------------
 # 4. Estimate the prevalence of sleep disturbance (Q1)
 #    Need to examine the various sleep scores - literature review
