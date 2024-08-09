@@ -109,63 +109,6 @@ ggplot(RelevantData,aes(x=SF36.PCS, y=Sleep_Disturbance)) + geom_jitter(height=0
 ggplot(RelevantData,aes(x=SF36.MCS, y=Sleep_Disturbance)) + geom_jitter(height=0.05,alpha=0.5) #some difference in distribution
 
 #-------------------------------------------------------------------------------
-# Epworth
-# plot the response variable against the predictor variables to see if there is any clear relationships
-ggplot(RelevantData,aes(x=Gender, y=Disordered_EpWorth)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
-ggplot(RelevantData,aes(x=Age, y=Disordered_EpWorth)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
-ggplot(RelevantData,aes(x=BMI, y=Disordered_EpWorth)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
-ggplot(RelevantData,aes(x=Time.from.transplant, y=Disordered_EpWorth)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
-ggplot(RelevantData,aes(x=Liver.Diagnosis, y=Disordered_EpWorth)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
-ggplot(RelevantData,aes(x=Recurrence.of.disease, y=Disordered_EpWorth)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
-ggplot(RelevantData,aes(x=Rejection.graft.dysfunction, y=Disordered_EpWorth)) + geom_jitter(height=0.05,alpha=0.5) #some asymmetry across no rejection and disordered Epworth sleep
-ggplot(RelevantData,aes(x=Any.fibrosis, y=Disordered_EpWorth)) + geom_jitter(height=0.05,alpha=0.5) #some asymmetry across some fibrosis and disordered Epworth sleep
-ggplot(RelevantData,aes(x=Renal.Failure, y=Disordered_EpWorth)) + geom_jitter(height=0.05,alpha=0.5) #no strong association, almost no renal failure
-ggplot(RelevantData,aes(x=Depression, y=Disordered_EpWorth)) + geom_jitter(height=0.05,alpha=0.5) #some asymmetry across depression and disordered Epworth sleep
-ggplot(RelevantData,aes(x=Corticoid, y=Disordered_EpWorth)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
-
-# Pittsburgh
-# plot the response variable against the predictor variables to see if there is any clear relationships
-ggplot(RelevantData,aes(x=Gender, y=Disordered_Pittsburgh)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
-ggplot(RelevantData,aes(x=Age, y=Disordered_Pittsburgh)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
-ggplot(RelevantData,aes(x=BMI, y=Disordered_Pittsburgh)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
-ggplot(RelevantData,aes(x=Time.from.transplant, y=Disordered_Pittsburgh)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
-ggplot(RelevantData,aes(x=Liver.Diagnosis, y=Disordered_Pittsburgh)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
-ggplot(RelevantData,aes(x=Recurrence.of.disease, y=Disordered_Pittsburgh)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
-ggplot(RelevantData,aes(x=Rejection.graft.dysfunction, y=Disordered_Pittsburgh)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
-ggplot(RelevantData,aes(x=Any.fibrosis, y=Disordered_Pittsburgh)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
-ggplot(RelevantData,aes(x=Renal.Failure, y=Disordered_Pittsburgh)) + geom_jitter(height=0.05,alpha=0.5) #no strong association, almost no renal failure
-ggplot(RelevantData,aes(x=Depression, y=Disordered_Pittsburgh)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
-ggplot(RelevantData,aes(x=Corticoid, y=Disordered_Pittsburgh)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
-
-# Athens
-# plot the response variable against the predictor variables to see if there is any clear relationships
-ggplot(RelevantData,aes(x=Gender, y=Disordered_Athens)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
-ggplot(RelevantData,aes(x=Age, y=Disordered_Athens)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
-ggplot(RelevantData,aes(x=BMI, y=Disordered_Athens)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
-ggplot(RelevantData,aes(x=Time.from.transplant, y=Disordered_Athens)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
-ggplot(RelevantData,aes(x=Liver.Diagnosis, y=Disordered_Athens)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
-ggplot(RelevantData,aes(x=Recurrence.of.disease, y=Disordered_Athens)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
-ggplot(RelevantData,aes(x=Rejection.graft.dysfunction, y=Disordered_Athens)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
-ggplot(RelevantData,aes(x=Any.fibrosis, y=Disordered_Athens)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
-ggplot(RelevantData,aes(x=Renal.Failure, y=Disordered_Athens)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
-ggplot(RelevantData,aes(x=Depression, y=Disordered_Athens)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
-ggplot(RelevantData,aes(x=Corticoid, y=Disordered_Athens)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
-
-# Berlin
-# plot the response variable against the predictor variables to see if there is any clear relationships
-ggplot(RelevantData,aes(x=Gender, y=Berlin.Sleepiness.Scale)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
-ggplot(RelevantData,aes(x=Age, y=Berlin.Sleepiness.Scale)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
-ggplot(RelevantData,aes(x=BMI, y=Berlin.Sleepiness.Scale)) + geom_jitter(height=0.05,alpha=0.5) #some association
-ggplot(RelevantData,aes(x=Time.from.transplant, y=Berlin.Sleepiness.Scale)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
-ggplot(RelevantData,aes(x=Liver.Diagnosis, y=Berlin.Sleepiness.Scale)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
-ggplot(RelevantData,aes(x=Recurrence.of.disease, y=Berlin.Sleepiness.Scale)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
-ggplot(RelevantData,aes(x=Rejection.graft.dysfunction, y=Berlin.Sleepiness.Scale)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
-ggplot(RelevantData,aes(x=Any.fibrosis, y=Berlin.Sleepiness.Scale)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
-ggplot(RelevantData,aes(x=Renal.Failure, y=Berlin.Sleepiness.Scale)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
-ggplot(RelevantData,aes(x=Depression, y=Berlin.Sleepiness.Scale)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
-ggplot(RelevantData,aes(x=Corticoid, y=Berlin.Sleepiness.Scale)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
-
-#-------------------------------------------------------------------------------
 
 # create a model for sleep disturbance which uses all the predictors
 model1 <- glm(Sleep_Disturbance ~ Gender+Age+BMI+Time.from.transplant+Liver.Diagnosis+Recurrence.of.disease+Rejection.graft.dysfunction+Any.fibrosis+Renal.Failure+Depression+Corticoid, data=RelevantData,family = binomial)
@@ -279,6 +222,65 @@ CumulativeModel.step.back <- glm(Sleep_Disturbance ~ Gender+Age+Recurrence.of.di
 summary(CumulativeModel.step.back)
 
 #-------------------------------------------------------------------------------
+
+# Epworth
+# plot the response variable against the predictor variables to see if there is any clear relationships
+ggplot(RelevantData,aes(x=Gender, y=Disordered_EpWorth)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
+ggplot(RelevantData,aes(x=Age, y=Disordered_EpWorth)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
+ggplot(RelevantData,aes(x=BMI, y=Disordered_EpWorth)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
+ggplot(RelevantData,aes(x=Time.from.transplant, y=Disordered_EpWorth)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
+ggplot(RelevantData,aes(x=Liver.Diagnosis, y=Disordered_EpWorth)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
+ggplot(RelevantData,aes(x=Recurrence.of.disease, y=Disordered_EpWorth)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
+ggplot(RelevantData,aes(x=Rejection.graft.dysfunction, y=Disordered_EpWorth)) + geom_jitter(height=0.05,alpha=0.5) #some asymmetry across no rejection and disordered Epworth sleep
+ggplot(RelevantData,aes(x=Any.fibrosis, y=Disordered_EpWorth)) + geom_jitter(height=0.05,alpha=0.5) #some asymmetry across some fibrosis and disordered Epworth sleep
+ggplot(RelevantData,aes(x=Renal.Failure, y=Disordered_EpWorth)) + geom_jitter(height=0.05,alpha=0.5) #no strong association, almost no renal failure
+ggplot(RelevantData,aes(x=Depression, y=Disordered_EpWorth)) + geom_jitter(height=0.05,alpha=0.5) #some asymmetry across depression and disordered Epworth sleep
+ggplot(RelevantData,aes(x=Corticoid, y=Disordered_EpWorth)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
+
+# Pittsburgh
+# plot the response variable against the predictor variables to see if there is any clear relationships
+ggplot(RelevantData,aes(x=Gender, y=Disordered_Pittsburgh)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
+ggplot(RelevantData,aes(x=Age, y=Disordered_Pittsburgh)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
+ggplot(RelevantData,aes(x=BMI, y=Disordered_Pittsburgh)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
+ggplot(RelevantData,aes(x=Time.from.transplant, y=Disordered_Pittsburgh)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
+ggplot(RelevantData,aes(x=Liver.Diagnosis, y=Disordered_Pittsburgh)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
+ggplot(RelevantData,aes(x=Recurrence.of.disease, y=Disordered_Pittsburgh)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
+ggplot(RelevantData,aes(x=Rejection.graft.dysfunction, y=Disordered_Pittsburgh)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
+ggplot(RelevantData,aes(x=Any.fibrosis, y=Disordered_Pittsburgh)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
+ggplot(RelevantData,aes(x=Renal.Failure, y=Disordered_Pittsburgh)) + geom_jitter(height=0.05,alpha=0.5) #no strong association, almost no renal failure
+ggplot(RelevantData,aes(x=Depression, y=Disordered_Pittsburgh)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
+ggplot(RelevantData,aes(x=Corticoid, y=Disordered_Pittsburgh)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
+
+# Athens
+# plot the response variable against the predictor variables to see if there is any clear relationships
+ggplot(RelevantData,aes(x=Gender, y=Disordered_Athens)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
+ggplot(RelevantData,aes(x=Age, y=Disordered_Athens)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
+ggplot(RelevantData,aes(x=BMI, y=Disordered_Athens)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
+ggplot(RelevantData,aes(x=Time.from.transplant, y=Disordered_Athens)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
+ggplot(RelevantData,aes(x=Liver.Diagnosis, y=Disordered_Athens)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
+ggplot(RelevantData,aes(x=Recurrence.of.disease, y=Disordered_Athens)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
+ggplot(RelevantData,aes(x=Rejection.graft.dysfunction, y=Disordered_Athens)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
+ggplot(RelevantData,aes(x=Any.fibrosis, y=Disordered_Athens)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
+ggplot(RelevantData,aes(x=Renal.Failure, y=Disordered_Athens)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
+ggplot(RelevantData,aes(x=Depression, y=Disordered_Athens)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
+ggplot(RelevantData,aes(x=Corticoid, y=Disordered_Athens)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
+
+# Berlin
+# plot the response variable against the predictor variables to see if there is any clear relationships
+ggplot(RelevantData,aes(x=Gender, y=Berlin.Sleepiness.Scale)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
+ggplot(RelevantData,aes(x=Age, y=Berlin.Sleepiness.Scale)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
+ggplot(RelevantData,aes(x=BMI, y=Berlin.Sleepiness.Scale)) + geom_jitter(height=0.05,alpha=0.5) #some association
+ggplot(RelevantData,aes(x=Time.from.transplant, y=Berlin.Sleepiness.Scale)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
+ggplot(RelevantData,aes(x=Liver.Diagnosis, y=Berlin.Sleepiness.Scale)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
+ggplot(RelevantData,aes(x=Recurrence.of.disease, y=Berlin.Sleepiness.Scale)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
+ggplot(RelevantData,aes(x=Rejection.graft.dysfunction, y=Berlin.Sleepiness.Scale)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
+ggplot(RelevantData,aes(x=Any.fibrosis, y=Berlin.Sleepiness.Scale)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
+ggplot(RelevantData,aes(x=Renal.Failure, y=Berlin.Sleepiness.Scale)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
+ggplot(RelevantData,aes(x=Depression, y=Berlin.Sleepiness.Scale)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
+ggplot(RelevantData,aes(x=Corticoid, y=Berlin.Sleepiness.Scale)) + geom_jitter(height=0.05,alpha=0.5) #no strong association
+
+#-------------------------------------------------------------------------------
+
 # Create models by selecting only the most statistically significant predictors
 NARemovedRelevantData <- na.omit(RelevantData[c("Gender","Age","BMI","Time.from.transplant","Liver.Diagnosis","Recurrence.of.disease","Rejection.graft.dysfunction","Any.fibrosis","Renal.Failure","Depression","Corticoid","Sleep_Disturbance","Disordered_EpWorth","Disordered_Pittsburgh","Disordered_Athens","Berlin.Sleepiness.Scale","Sleep_Disturbance")]) #test the models on the same data
 
