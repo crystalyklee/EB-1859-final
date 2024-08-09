@@ -27,17 +27,13 @@ summary(RelevantData)
 library(dplyr)
 library(funModeling) 
 library(Hmisc)
-RelevantData_eda <- function(RelevantData)
-{
-  glimpse(RelevantData)
-  print(status(RelevantData))
-  freq(RelevantData) 
-  print(profiling_num(RelevantData))
-  plot_num(RelevantData)
-  describe(RelevantData)
-}
 
-RelevantData_eda(RelevantData)
+glimpse(RelevantData)
+print(status(RelevantData))
+freq(RelevantData) 
+print(profiling_num(RelevantData))
+plot_num(RelevantData)
+describe(RelevantData)
 
 #-------------------------------------------------------------------------------
 # 4. Estimate the prevalence of sleep disturbance (Q1)
