@@ -452,8 +452,3 @@ pR2(SF36.MCSModel1) #McFadden value = 0.08239649
 SF36.MCSModel2 <- lm(SF36.MCS~Age+Depression+Pittsburgh.Sleep.Quality.Index.Score,RelevantData)
 summary(SF36.PCSModel2)
 pR2(SF36.MCSModel2) #McFadden value = 0.06826574
-
-
-# 7. Write up the answers to Q1 and Q2
-
-# 8. Create presentation on the answers to Q1 and Q2
