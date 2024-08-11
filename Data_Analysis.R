@@ -483,3 +483,32 @@ pR2(SF36.MCSModel1) #McFadden value = 0.08239649
 SF36.MCSModel2 <- lm(SF36.MCS~Age+Depression+Pittsburgh.Sleep.Quality.Index.Score,RelevantData)
 summary(SF36.PCSModel2)
 pR2(SF36.MCSModel2) #McFadden value = 0.06826574
+
+# Further analysis on SF36 MCS simpler model 
+# Calculate Pearson's r for simpler model
+# Remove NAs so observed and fitted data are the same length
+SF36MCS_cleandata <- na.omit(RelevantData[, c("SF36.MCS", "Age", "Depression", 
+                                              "Pittsburgh.Sleep.Quality.Index.Score")])
+
+# Fit model with clean data
+SF36.MCSModel2_clean <- lm(SF36.MCS ~ Age + Depression + Pittsburgh.Sleep.Quality.Index.Score, data = SF36MCS_cleandata)
+
+# Calculate observed and fitted data
+observed_values <- SF36MCS_cleandata$SF36.MCS
+fitted_values <- SF36.MCSModel2_clean$fitted.values
+
+# Calculate pearson's R
+SF36MCS_pearson_r <- cor(observed_values, fitted_values)
+SF36MCS_pearson_r
+
+# Create residual plot for simpler model
+plot(SF36.MCSModel2_clean$fitted.values, resid(SF36.MCSModel2_clean),
+     xlab = "Fitted Values",
+     ylab = "Residuals",
+     main = "Residuals vs Fitted Values")
+abline(h = 0, col = "red")
+
+# QQplot to assess for normality 
+qqnorm(resid(SF36.MCSModel2_clean), main = "Q-Q Plot of Residuals")
+qqline(resid(SF36.MCSModel2_clean), col = "red")
+
