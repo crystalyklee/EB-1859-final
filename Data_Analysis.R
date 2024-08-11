@@ -470,10 +470,38 @@ summary(SF36.PCSModel1)
 vif(SF36.PCSModel1) #all below 5
 pR2(SF36.PCSModel1) #McFadden value = 0.0426612
 
-SF36.PCSModel2 <- lm(SF36.PCS~Epworth.Sleepiness.Scale+Athens.Insomnia.Scale,RelevantData)
+SF36.PCSModel2 <- lm(SF36.PCS~Recurrence.of.disease+Epworth.Sleepiness.Scale+Athens.Insomnia.Scale,RelevantData)
 summary(SF36.PCSModel2)
 pR2(SF36.PCSModel2) #McFadden value = 0.02730669
 
+# Further analysis on SF36 PCS simpler model 
+# Calculate Pearson's r for simpler model
+# Remove NAs so observed and fitted data are the same length
+SF36PCS_cleandata <- na.omit(RelevantData[, c("SF36.PCS", "Recurrence.of.disease", "Epworth.Sleepiness.Scale", "Athens.Insomnia.Scale")])
+
+# Fit model with clean data
+SF36.PCSModel2_clean <- lm(SF36.PCS ~ Recurrence.of.disease + Epworth.Sleepiness.Scale + Athens.Insomnia.Scale, data = SF36PCS_cleandata)
+
+# Calculate observed and fitted data
+observed_valuesPCS <- SF36PCS_cleandata$SF36.PCS
+fitted_valuesPCS <- SF36.PCSModel2_clean$fitted.values
+
+# Calculate Pearson's correlation coefficient
+SF36PCS_pearson_r <- cor(observed_valuesPCS, fitted_valuesPCS)
+SF36PCS_pearson_r
+
+# Create residual plot for the model
+plot(fitted_valuesPCS, resid(SF36.PCSModel2_clean),
+     xlab = "Fitted Values",
+     ylab = "Residuals",
+     main = "Residuals vs Fitted Values")
+abline(h = 0, col = "red")
+
+# QQ plot to assess residuals for normality
+qqnorm(resid(SF36.PCSModel2_clean), main = "Q-Q Plot of Residuals")
+qqline(resid(SF36.PCSModel2_clean), col = "red")
+
+---
 # Mental
 SF36.MCSModel1 <- lm(SF36.MCS~Gender+Age+BMI+Time.from.transplant+Liver.Diagnosis+Recurrence.of.disease+Rejection.graft.dysfunction+Any.fibrosis+Renal.Failure+Depression+Corticoid+Epworth.Sleepiness.Scale+Pittsburgh.Sleep.Quality.Index.Score+Athens.Insomnia.Scale+Berlin.Sleepiness.Scale,RelevantData)
 summary(SF36.MCSModel1)
@@ -494,11 +522,11 @@ SF36MCS_cleandata <- na.omit(RelevantData[, c("SF36.MCS", "Age", "Depression",
 SF36.MCSModel2_clean <- lm(SF36.MCS ~ Age + Depression + Pittsburgh.Sleep.Quality.Index.Score, data = SF36MCS_cleandata)
 
 # Calculate observed and fitted data
-observed_values <- SF36MCS_cleandata$SF36.MCS
-fitted_values <- SF36.MCSModel2_clean$fitted.values
+observed_valuesMCS <- SF36MCS_cleandata$SF36.MCS
+fitted_valuesMCS <- SF36.MCSModel2_clean$fitted.values
 
 # Calculate pearson's R
-SF36MCS_pearson_r <- cor(observed_values, fitted_values)
+SF36MCS_pearson_r <- cor(observed_valuesMCS, fitted_valuesMCS)
 SF36MCS_pearson_r
 
 # Create residual plot for simpler model
