@@ -76,10 +76,10 @@ plot_data <- RelevantData %>%
   group_by(Disorder_Type, Presence) %>%
   summarise(Count = n(), .groups = 'drop') # Ensure grouping is done before summarizing
 
-# Create the combined bar plot
+# Create the combined bar graph
 ggplot(plot_data, aes(x = Disorder_Type, y = Count, fill = factor(Presence))) +
   geom_bar(stat = "identity", position = "stack", color = "black") +
-  labs(title = "Count of Participants with and without Each Sleep Disorder",
+  labs(title = "Frequency of Participants with and without Each Sleep Disorder",
        x = "Disorder Type",
        y = "Count",
        fill = "Disorder Present (1) or Absent (0)") +
