@@ -41,6 +41,21 @@ print(profiling_num(RelevantData))
 plot_num(RelevantData)
 describe(RelevantData)
 
+# Create boxplots to view potential outliers
+# Select only the numeric variables
+numeric_vars <- sapply(RelevantData, is.numeric)
+numeric_data <- RelevantData[, numeric_vars]
+
+# Convert the data to a long format for ggplot2
+numeric_data_long <- numeric_data %>%
+  pivot_longer(cols = everything(), names_to = "variable", values_to = "value")
+
+# Create the boxplots
+ggplot(numeric_data_long, aes(x = variable, y = value)) +
+  geom_boxplot() +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) +
+  labs(title = "Boxplots for Selected Variables", x = "Variable", y = "Value")
+
 #-------------------------------------------------------------------------------
 # 4. Estimate the prevalence of sleep disturbance (Q1)
 #    Need to examine the various sleep scores - literature review
