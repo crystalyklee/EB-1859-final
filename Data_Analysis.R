@@ -17,6 +17,7 @@ library(pscl)
 library(ISLR)
 library(MASS)
 library(ggplot2)
+library(tidyr)
 
 # 3. Describe relevant data: some are categorical, some are numeric
 # Can use summary functions, convert others to factors
@@ -54,7 +55,8 @@ describe(RelevantData)
 RelevantData <- RelevantData %>%
   mutate(Disordered_EpWorth = case_when(Epworth.Sleepiness.Scale >10 ~ 1, .default = 0)) %>%  # >10
   mutate(Disordered_Pittsburgh = case_when(Pittsburgh.Sleep.Quality.Index.Score >4 ~ 1, .default = 0)) %>%  # >10
-  mutate(Disordered_Athens = case_when(Athens.Insomnia.Scale >5 ~ 1, .default = 0)) # >10
+  mutate(Disordered_Athens = case_when(Athens.Insomnia.Scale >5 ~ 1, .default = 0)) %>% # >10
+  mutate(Disordered_Berlin = case_when(Berlin.Sleepiness.Scale == 1 ~ 1, .default = 0))
 
 RelevantData <- mutate(RelevantData,Sleep_Disturbance = case_when( #the case when will check to see if a participant has ANY sleep disorders
     Berlin.Sleepiness.Scale == 1 |
@@ -65,6 +67,25 @@ RelevantData <- mutate(RelevantData,Sleep_Disturbance = case_when( #the case whe
 ))
 
 Sleep_Disturbance_Prevalence <- sum(as.numeric(as.character(RelevantData$Sleep_Disturbance)))/length(RelevantData$Sleep_Disturbance)
+
+# Reshape the data for plotting
+plot_data <- RelevantData %>%
+  pivot_longer(cols = starts_with("Disordered_"),
+               names_to = "Disorder_Type",
+               values_to = "Presence") %>%
+  group_by(Disorder_Type, Presence) %>%
+  summarise(Count = n(), .groups = 'drop') # Ensure grouping is done before summarizing
+
+# Create the combined bar plot
+ggplot(plot_data, aes(x = Disorder_Type, y = Count, fill = factor(Presence))) +
+  geom_bar(stat = "identity", position = "stack", color = "black") +
+  labs(title = "Count of Participants with and without Each Sleep Disorder",
+       x = "Disorder Type",
+       y = "Count",
+       fill = "Disorder Present (1) or Absent (0)") +
+  scale_fill_manual(values = c("0" = "lightblue", "1" = "salmon")) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 #-------------------------------------------------------------------------------
 # 5. Identify predictors that are associated with sleep disturbance (Q1)
