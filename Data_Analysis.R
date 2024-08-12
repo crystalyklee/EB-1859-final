@@ -485,6 +485,7 @@ summary(SF36.PCSModel1)
 vif(SF36.PCSModel1) #all below 5
 pR2(SF36.PCSModel1) #McFadden value = 0.0426612
 
+# Create model with only predictors from Model1 with a p value above the significant level of 0.05
 SF36.PCSModel2 <- lm(SF36.PCS~Recurrence.of.disease+Epworth.Sleepiness.Scale+Athens.Insomnia.Scale,RelevantData)
 summary(SF36.PCSModel2)
 pR2(SF36.PCSModel2) #McFadden value = 0.02730669
@@ -523,6 +524,7 @@ summary(SF36.MCSModel1)
 vif(SF36.MCSModel1) #all below 5
 pR2(SF36.MCSModel1) #McFadden value = 0.08239649
 
+# Create model with only predictors from Model1 with a p value above the significant level of 0.05
 SF36.MCSModel2 <- lm(SF36.MCS~Age+Depression+Pittsburgh.Sleep.Quality.Index.Score,RelevantData)
 summary(SF36.PCSModel2)
 pR2(SF36.MCSModel2) #McFadden value = 0.06826574
