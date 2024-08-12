@@ -200,14 +200,6 @@ OmittedModel10 <- glm(Sleep_Disturbance ~BMI+Recurrence.of.disease+Depression, d
 anova(OmittedModel1,OmittedModel10, test = "Chisq")
 anova(OmittedModel1,OmittedModel11, test = "Chisq")
 anova(OmittedModel10,OmittedModel11, test = "Chisq")
-
-NARemovedRelevantData <- na.omit(RelevantData[c("Sleep_Disturbance","Gender","Age","BMI","Time.from.transplant","Liver.Diagnosis","Recurrence.of.disease","Rejection.graft.dysfunction","Any.fibrosis","Renal.Failure","Depression","Corticoid")]) #test the models on the same data
-OmittedModel1 <- glm(Sleep_Disturbance ~ Gender+Age+BMI+Time.from.transplant+Liver.Diagnosis+Recurrence.of.disease+Rejection.graft.dysfunction+Any.fibrosis+Renal.Failure+Depression+Corticoid, data=NARemovedRelevantData,family = binomial)
-OmittedModel11 <- glm(Sleep_Disturbance ~Recurrence.of.disease+Depression, data=NARemovedRelevantData,family = binomial)
-OmittedModel10 <- glm(Sleep_Disturbance ~BMI+Recurrence.of.disease+Depression, data=NARemovedRelevantData,family = binomial)
-anova(OmittedModel1,OmittedModel10, test = "Chisq")
-anova(OmittedModel1,OmittedModel11, test = "Chisq")
-anova(OmittedModel10,OmittedModel11, test = "Chisq")
 # not statistically significant in difference
 # the most important predictors for sleep disturbance are Recurrence.of.disease and Depression
 # but! Some data has been lost, 23 observations, though it is only ~8.58% missingness in the dataset
