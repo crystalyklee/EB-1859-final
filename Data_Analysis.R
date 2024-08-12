@@ -516,7 +516,7 @@ abline(h = 0, col = "red")
 qqnorm(resid(SF36.PCSModel2_clean), main = "Q-Q Plot of Residuals")
 qqline(resid(SF36.PCSModel2_clean), col = "red")
 
----
+# ---
 # Mental
 SF36.MCSModel1 <- lm(SF36.MCS~Gender+Age+BMI+Time.from.transplant+Liver.Diagnosis+Recurrence.of.disease+Rejection.graft.dysfunction+Any.fibrosis+Renal.Failure+Depression+Corticoid+Epworth.Sleepiness.Scale+Pittsburgh.Sleep.Quality.Index.Score+Athens.Insomnia.Scale+Berlin.Sleepiness.Scale,RelevantData)
 summary(SF36.MCSModel1)
